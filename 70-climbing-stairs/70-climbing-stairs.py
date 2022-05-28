@@ -1,10 +1,13 @@
-class Solution:
+class Solution:    
     def climbStairs(self, n: int) -> int:
-        dp = [0 for i in range(n+1)]
-        dp[0] = 1
-        dp[1] = 1
-        if(n < 2): return dp[n]
-        for i in range(2,n+1):
-            dp[i] = dp[i-1] + dp[i-2]
-        return dp[n]
-            
+        self.memo = [-1 for i in range(n+1)]
+        self.memo[0] = self.memo[1] = 1
+        res = self.climbStairsOptimized(n)    
+        return res
+    
+    def climbStairsOptimized(self,n: int) -> int:
+        if(n < 0): return 0
+        if self.memo[n] != -1: return self.memo[n]
+        result = self.climbStairsOptimized(n-1) + self.climbStairsOptimized(n-2)
+        self.memo[n] = result
+        return result
