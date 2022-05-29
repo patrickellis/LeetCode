@@ -12,12 +12,12 @@ class Solution:
         # curr = curr->next
         # head->next = prev
         # prev = head
-        prev = None
-        curr = head
+        
+        prev, curr = None, head
         while(curr):
             head = head.next
             curr.next = prev
             prev = curr
             curr = head
-        head = prev
-        return head
+        return prev
+            
