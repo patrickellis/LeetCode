@@ -11,7 +11,7 @@ class Solution:
         for n in nums[1:]:
             curr_1 = prev_min * n
             curr_2 = prev_max * n
-            prev_min = min([curr_1, curr_2, n])
+            prev_min = min(curr_1, curr_2, n)
             prev_max = max(curr_1, curr_2, n)
             res = max(prev_max,res)
         return res
