@@ -23,9 +23,9 @@ class LRUCache:
         # insert the item into the head of our list
         # insert the item into the cache
         if key in self.cache:
-            self.remove(key)
+            self.remove(self.cache[key])
         if self.curr_cap >= self.capacity:
-            self.remove()
+            self.remove(self.tail.prev)
             
         node = ListNode(key,value)
         node.next = self.head.next
@@ -36,20 +36,14 @@ class LRUCache:
         self.cache[key] = node
         
 
-    def remove(self, key = None):
+    def remove(self, node):
         # guard, we don't want to remove our bookmarks
         # under any circumstances
-        if self.head == self.tail.prev: return        
-        if key == None:
-            node = self.tail.prev
-        else:
-            node = self.cache[key]
+        if not self.capacity: return        
         
         # remove from list
         node.prev.next = node.next
         node.next.prev = node.prev
-        # not 100% convinced this is necessary due to garbage collection
-        # once no other nodes point to 'node'
 
         # remove from cache
         self.cache.pop(node.key, None)
