@@ -13,9 +13,9 @@ class LRUCache:
 
     def get(self, key: int) -> int:
         if not key in self.cache: return -1
-        node = self.cache[key]
-        self.put(key,node.val)
-        return node.val
+        # node = self.cache[key]
+        self.put(key,self.cache[key].val)
+        return self.cache[key].val
 
     def put(self, key: int, value: int) -> None:
         # if the key exists in our cache, remove it
