@@ -36,11 +36,7 @@ class LRUCache:
         self.cache[key] = node
         
 
-    def remove(self, node):
-        # guard, we don't want to remove our bookmarks
-        # under any circumstances
-       # if not self.capacity: return        
-        
+    def remove(self, node):            
         # remove from list
         node.prev.next = node.next
         node.next.prev = node.prev
