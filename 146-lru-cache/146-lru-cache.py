@@ -50,8 +50,7 @@ class LRUCache:
         node.next.prev = node.prev
         # not 100% convinced this is necessary due to garbage collection
         # once no other nodes point to 'node'
-        node.next = None
-        node.prev = None
+
         # remove from cache
         self.cache.pop(node.key, None)
         self.curr_cap -= 1
