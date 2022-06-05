@@ -10,9 +10,4 @@ class Solution:
             nums[i] = leftProducts[i-1]*rightProducts[i+1]
         nums[0]=rightProducts[1]
         nums[-1]=leftProducts[-2]
-        for i in range(len(nums)):
-            print("{} ".format(leftProducts[i]), end="", flush=True)
-        print("")
-        for i in range(len(nums)):
-            print("{} ".format(rightProducts[i]), end="", flush=True)
         return nums
