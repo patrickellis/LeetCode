@@ -4,7 +4,8 @@ class Solution:
         i = 0
         n = len(nums)
         nums.sort()
-        while i < n-2:            
+        while i < n-2:  
+            if nums[i] > 0: break
             while i > 0 and nums[i] == nums[i-1] and i < n-1: i+=1 
             l = i+1
             r = n-1
