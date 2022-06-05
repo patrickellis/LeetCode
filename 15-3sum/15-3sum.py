@@ -5,7 +5,7 @@ def print_array(nums):
     
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
-        result = set()
+        result = []
         i = 0
         n = len(nums)
         nums.sort()
@@ -14,9 +14,7 @@ class Solution:
             while i > 0 and nums[i] == nums[i-1] and i < n-1: i+=1 
             l = i+1
             r = n-1
-            while l < r:
-                # while l < r-1 and nums[l] == nums[l+1]: l+=1
-                # while r > l+1 and nums[r] == nums[r-1]: r-=1
+            while l < r:                
                 triplet_sum = nums[i] + nums[l] + nums[r]
                 # print("triplet_sum: {} + {} + {} = {}".format(
                 #     nums[i],
@@ -29,7 +27,9 @@ class Solution:
                 elif triplet_sum > 0:
                     r-=1
                 else:
-                    result.add((nums[i],nums[l],nums[r]))
-                    l+=1
+                    result.append([nums[i],nums[l],nums[r]])
+                    while l < r and nums[l] == nums[l+1]: l+=1
+                    while r > l and nums[r] == nums[r-1]: r-=1
+                    l+=1; r-=1
             i+=1
-        return [list(tuple_) for tuple_ in result]
+        return result
