@@ -7,8 +7,7 @@ class Solution:
         running_sum = 0
         
         for n in nums:
-            reset_sum = n
             continued_sum = running_sum + n
-            running_sum = continued_sum if running_sum >= 0 else reset_sum
+            running_sum = continued_sum if running_sum >= 0 else n
             res = max(res,running_sum)
         return res
