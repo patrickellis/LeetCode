@@ -9,5 +9,5 @@ class Solution:
         for n in nums:
             continued_sum = running_sum + n
             running_sum = continued_sum if running_sum >= 0 else n
-            res = max(res,running_sum)
+            res = running_sum if running_sum > res else res
         return res
