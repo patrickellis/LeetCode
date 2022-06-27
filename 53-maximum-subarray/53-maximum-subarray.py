@@ -3,7 +3,7 @@ class Solution:
         # For as long as the current sum is non-negative
         # we are better off continuing the previous sum than beginning
         # a new one. 
-        res = -float('inf')
+        res = -pow(10,5)
         running_sum = 0
         
         for n in nums:
