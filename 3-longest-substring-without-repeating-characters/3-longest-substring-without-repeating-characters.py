@@ -1,6 +1,5 @@
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        # First solution using a hashmap to store last seen indices of characters
         last_seen = [-1 for i in range(128)]
         res = count = 0 
         
