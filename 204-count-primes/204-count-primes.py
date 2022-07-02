@@ -11,7 +11,7 @@ class Solution:
                 res += 1
                 if i > upperLim: 
                     continue
-                for j in range(i*2, n, i):
+                for j in range(i*i, n, i):
                     prime[j] = False
         return res
         
