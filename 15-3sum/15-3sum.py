@@ -1,19 +1,21 @@
+# Time Complexity: O(N^2) - for each number, run a two pointers algorithm on the remainder of the
+# input array.
+# Space Compleixty: O(1) - no data structures required except for the array holding the answer
 class Solution:
-    def threeSum(self, nums: List[int]) -> List[List[int]]:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:        
         # We know that our algorithm is going to run in 
         # O(N^2) time
         # Therefore, sorting the input comes at no cost
         nums.sort() 
         res = []
-        n = len(nums)
-        i = 0
-        while(i < n):
-            # skip duplicates for first number
-            while i > 0 and i < n and nums[i] == nums[i-1]: 
-                i+=1
+ 
+        
+        for i,val in enumerate(nums):
+            if i > 0 and val == nums[i-1]:
+                continue
             
             # initialise left and right pointers
-            l, r = i+1, n-1
+            l, r = i+1, len(nums)-1
             
             while l < r:
                 total_sum = nums[i] + nums[l] + nums[r]
@@ -27,8 +29,7 @@ class Solution:
                     while l < r and nums[l] == nums[l-1]:
                         l+=1
                     while r > l and nums[r] == nums[r+1]:
-                        r-=1
-            i+=1
+                        r-=1            
         return res
             
         
