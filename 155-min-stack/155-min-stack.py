@@ -10,7 +10,6 @@ class MinStack:
         if not len(self.stack):
             self.min = val
         self.stack.append((val,self.min))
-        print(f'{self.stack[-1][0]} {self.stack[-1][1]}')
 
     def pop(self) -> None:
         if len(self.stack) > 1:
